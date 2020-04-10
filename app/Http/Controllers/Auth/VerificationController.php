@@ -28,7 +28,7 @@ class VerificationController extends Controller
         // check if the url is a valid signed url
         if (! URL::hasValidSignature($request)) {
             return response()->json(['errors' => [
-                "message" => "Link de verificación invalido"
+                "message" => "Enlace de verificación invalido"
             ]], 422);
         }
 
@@ -47,6 +47,24 @@ class VerificationController extends Controller
 
     public function resend(Request $request)
     {
+        $this->validate($request, [
+            'email' => ['email', 'required']
+        ]);
 
+        $user = User::where('email', $request->email)->first();
+        if(! $user) {
+            return response()->json(["errors" => [
+                "email" => "Usuario no encontrado con este email"
+            ]], 422);
+        }
+        if($user->hasVerifiedEmail()){
+            return response()->json(["errors" => [
+                "message" => "Correo ya ha sido verificado"
+            ]], 422);
+        }
+
+        $user->sendEmailVerificationNotification();
+
+        return response()->json(['status' => "Enlace de verificación reenviado"]);
     }
 }
