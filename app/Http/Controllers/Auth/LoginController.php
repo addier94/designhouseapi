@@ -65,4 +65,10 @@ class LoginController extends Controller
             $this->username() => "Correo o contraseña invalido"
         ]);
     }
+
+    public function logout()
+    {
+        $this->guard()->logout();
+        return response()->json(['message' => 'Sesion cerrado con exito']);
+    }
 }
