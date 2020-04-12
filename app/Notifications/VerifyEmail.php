@@ -20,7 +20,6 @@ class VerifyEmail extends Notification
             Carbon::now()->addMinutes(60),
             ['user' => $notifiable->id]
         );
-
         // http://designhouse.test/api/androute
         return str_replace(url('/api'), $appUrl, $url);
     }

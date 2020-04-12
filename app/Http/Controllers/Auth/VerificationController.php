@@ -35,7 +35,7 @@ class VerificationController extends Controller
         // check if the user has already verified accound
         if($user->hasVerifiedEmail()) {
              return response()->json(["errors" => [
-                 "message" => "dirección de correo electrónico ya verificada"
+                 "message" => "Correo electrónico ya verificada"
              ]], 422);
         }
 

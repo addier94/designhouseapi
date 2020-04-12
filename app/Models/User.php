@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Auth\Notifications\VerifyEmail;
+// use Illuminate\Auth\Notifications\VerifyEmail;
+use App\Notifications\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
