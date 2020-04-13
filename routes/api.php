@@ -13,4 +13,5 @@ Route::group(['middleware' => ['guest:api']], function () {
     Route::post('verification/verify/{user}', 'Auth\VerificationController@verify')->name('verification.verify');
     Route::post('verification/resend', 'Auth\VerificationController@resend');
     Route::post('login', 'Auth\LoginController@login');
+    Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 });
