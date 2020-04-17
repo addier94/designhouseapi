@@ -20,22 +20,21 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
      *
      * @var array
      */
-    protected $fillable = [
+    protected $fillable = [ 
         'name', 
         'email', 
-        'password',
-        'tagline',
-        'about',
-        'username',
-        'location',
-        'formatted_address',
-        'available_to_hire'
+        'password', 
+        'tagline', 
+        'about', 
+        'username', 
+        'formatted_address', 
+        'available_to_hire', 
+        'location' 
     ];
 
-    protected $spatialFields = [
-        'location'
-    ];
-
+    protected $spatialFields = [ 
+        'location' 
+    ]; 
     /**
      * The attributes that should be hidden for arrays.
      *
