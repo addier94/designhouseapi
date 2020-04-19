@@ -14,7 +14,7 @@ class Design extends Model
         'slug',
         'close_to_comment',
         'is_live',
-        'upload_successfule',
+        'upload_successful',
         'disk'
     ];
     
